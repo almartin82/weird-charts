@@ -3,9 +3,11 @@
         
         {{ .Content}}
         {{ with .Params.contributor }}
-            <p>contributed by {{ . }}</p>
-        {{ end }}
+            <p>contributed by {{ . }} on 
+                {{ end }}
+                {{ .Date.Format "Jan 1, 2006" }}
+            </p>
     
     {{- end }}
-    </ul>
+</ul>
     
