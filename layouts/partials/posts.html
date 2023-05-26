@@ -4,10 +4,12 @@
         {{ .Content}}
         {{ with .Params.contributor }}
             <p>contributed by {{ . }} on 
-                {{ end }}
-                {{ .Date.Format "Jan 1, 2006" }}
-            </p>
-    
+        {{ end }}
+
+        <a href="{{ .Permalink }}">{{ .Date.Format "Jan 1, 2006" }}</a>
+        </p>
+
+                
     {{- end }}
 </ul>
     
