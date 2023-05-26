@@ -1,0 +1,11 @@
+<ul id="posts">
+    {{- range where site.RegularPages "Type" "in" site.Params.mainSections }}
+        
+        {{ .Content}}
+        {{ with .Params.contributor }}
+            <p>contributed by {{ . }}</p>
+        {{ end }}
+    
+    {{- end }}
+    </ul>
+    
