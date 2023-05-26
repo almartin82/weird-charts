@@ -1,0 +1,5 @@
+<div>
+
+    {{ (getJSON "https://api.twitter.com/1.1/statuses/oembed.json?dnt=1&hide_thread=1&theme=dark&id=" (index .Params 0)).html | safeHTML }}
+  
+</div>
