@@ -11,7 +11,6 @@ To contribute, **open a PR against this repo**.  Add a new markdown document to 
 You can look at [`content/posts`](https://github.com/almartin82/weird-charts/tree/main/content/posts) to get a sense of what a post looks like. Here are some examples:
 
 ### twitter charts
-5
 If it's a tweet, take a look at [470](https://raw.githubusercontent.com/almartin82/weird-charts/main/content/posts/00470.md)
 
 ```
