@@ -4,3 +4,4 @@ title = 'Weird Charts'
 theme = 'etch'
 [taxonomies]
   tag = 'tags'
+  contributor = 'contributor'
