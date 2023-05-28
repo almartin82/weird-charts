@@ -1,0 +1,5 @@
+{{ define "main" }}
+<h2>Post tagged: {{ .Data.Term }}</h2>
+<br>
+{{- partial "posts.html" . -}}
+{{ end }}
