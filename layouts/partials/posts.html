@@ -1,5 +1,7 @@
 <ul id="posts">
-    {{- range where site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections}}
+
+    {{- range first 10 $pages}}
         
     {{- partial "postblock.html" . -}}
 
