@@ -1,0 +1,16 @@
+{{ .Content}}
+{{ $contributor := .Params.contributor }}
+
+{{ with $contributor }}
+    <p>contributed by <a href="{{ $.Site.BaseURL }}contributor/{{ . | lower }}/">{{ . }}</a> on 
+{{ end }}
+<a href="{{ .Permalink }}">{{ .Date.Format "Jan 2, 2006" }}</a> 
+in
+{{ range $index, $tag := .Params.tags }}
+    {{ if $index }}, {{ end }}
+    <a href="{{ $.Site.BaseURL }}tags/{{ $tag | urlize }}">{{ $tag }}</a>
+{{ end }}
+</p>
+<br>
+<br>
+<br>  

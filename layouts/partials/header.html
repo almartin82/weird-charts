@@ -1,0 +1,14 @@
+<header id="banner">
+    <h2><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h2>
+    <br>
+    A love letter to strange and/or captivating charts, brought to you by <a href="https://github.com/almartin82">almartin</a>. <a href="https://github.com/almartin82/weird-charts#contributing">Contribute!</a>
+    <nav>
+        <ul>
+            {{ range .Site.Menus.main.ByWeight -}}
+            <li>
+                {{ .Pre }}<a href="{{ .URL }}" title="{{ .Title }}">{{- .Name -}}</a>{{ .Post }}
+            </li>
+            {{- end }}
+        </ul>
+    </nav>
+</header>
