@@ -1,0 +1,7 @@
+{{ define "main" }}
+<h2>Posts tagged: {{ .Data.Term }}</h2>
+<br>
+{{- range .Pages }}
+    {{- partial "postblock.html" . -}}
+{{- end }}
+{{ end }}
