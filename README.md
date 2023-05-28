@@ -46,3 +46,9 @@ Take a look at [500](https://raw.githubusercontent.com/almartin82/weird-charts/m
 ```
 
 3. include a citation with the link to the full page/article below.
+
+### Q & A
+
+**Q: What should I name my post in [`content/posts`](https://github.com/almartin82/weird-charts/tree/main/content/posts)?  What's the numbering scheme?**
+
+A: It honestly doesn't really matter, i've been counting up mostly so things sort nicely.  I counted by tens for old stuff that I "migrated" to github (`0010`, `0020`) mostly so I could fill things in between if I missed something (eg, `001.5`).  Now we're counting by ones (`00528`, `00529`).  But it honestly doesn't matter.  Just go for it!
