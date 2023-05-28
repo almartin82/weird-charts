@@ -6,8 +6,6 @@
 {{ end }}
 <a href="{{ .Permalink }}">{{ .Date.Format "Jan 2, 2006" }}</a> 
 in
-{{ range $index, $tag := .Params.tags }}
-{{ if $index }}, {{ end }}<a href="{{ $.Site.BaseURL }}tags/{{ $tag | urlize }}">{{ $tag }}</a>
-{{ end }}
+{{ range $index, $tag := .Params.tags }}{{ if $index }}, {{ end }}<a href="{{ $.Site.BaseURL }}tags/{{ $tag | urlize }}">{{ $tag }}</a>{{ end }}
 </p>
 <br>

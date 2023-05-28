@@ -1,6 +1,6 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'Weird Charts'
+title = 'weird charts'
 theme = 'etch'
 [taxonomies]
   tag = 'tags'
