@@ -1,0 +1,29 @@
+{{ define "main" }}
+<article>
+    <header id="post-header">
+        <h1>{{ .Title }}</h1>
+        <div>
+        {{- if isset .Params "date" -}}
+            {{ if eq .Lastmod .Date }}
+                <time>{{ .Date | time.Format (i18n "post.created") }}</time>
+            {{ else }}
+                <time>{{ .Lastmod | time.Format (i18n "post.updated") }}</time>
+            {{ end }}
+        {{- end -}}
+        </div>
+    </header>
+    {{ .Content}}
+    {{ $contributor := .Params.contributor }}
+
+    {{ with $contributor }}
+        <p>contributed by <a href="{{ $.Site.BaseURL }}contributor/{{ . | lower }}/">{{ . }}</a> on 
+    {{ end }}
+
+    <a href="{{ .Permalink }}">{{ .Date.Format "Jan 2, 2006" }}</a>
+    </p>
+    <br>
+    <br>
+    <br>  
+    
+</article>
+{{ end }}

@@ -2,8 +2,10 @@
     {{- range where site.RegularPages "Type" "in" site.Params.mainSections }}
         
         {{ .Content}}
-        {{ with .Params.contributor }}
-            <p>contributed by {{ . }} on 
+        {{ $contributor := .Params.contributor }}
+
+        {{ with $contributor }}
+            <p>contributed by <a href="{{ $.Site.BaseURL }}contributor/{{ . | lower }}/">{{ . }}</a> on 
         {{ end }}
 
         <a href="{{ .Permalink }}">{{ .Date.Format "Jan 2, 2006" }}</a>

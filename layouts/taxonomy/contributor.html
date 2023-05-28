@@ -1,19 +1,5 @@
 {{ define "main" }}
 <h2>Posts by {{ .Data.Term }}</h2>
 <br>
-<ul id="posts">
-  {{- range .Data.Pages }}
-    {{ .Content}}
-    {{ with .Params.contributor }}
-        <p>contributed by {{ . }} on 
-    {{ end }}
-
-    <a href="{{ .Permalink }}">{{ .Date.Format "Jan 2, 2006" }}</a>
-    </p>
-    <br>
-    <br>
-    <br>  
-
-  {{- end }}
-</ul>
+{{- partial "posts.html" . -}}
 {{ end }}
