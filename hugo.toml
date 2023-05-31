@@ -5,3 +5,4 @@ theme = 'etch'
 [taxonomies]
   tag = 'tags'
   contributor = 'contributor'
+paginate = 15

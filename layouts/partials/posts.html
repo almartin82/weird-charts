@@ -1,9 +1,22 @@
 <ul id="posts">
-    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections}}
 
-    {{- range first 10 $pages}}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ range $paginator.Pages }}
         
     {{- partial "postblock.html" . -}}
 
     {{- end }}
 </ul>
+
+<!-- Add navigation links if there are more pages -->
+{{ if or .Paginator.HasPrev .Paginator.HasNext }}
+  more weird charts? 
+{{ end }}
+
+{{ if .Paginator.HasPrev }}
+  <a href="{{ .Paginator.Prev.URL }}">Previous</a>
+{{ end }}
+
+{{ if .Paginator.HasNext }}
+|  <a href="{{ .Paginator.Next.URL }}">Next</a>
+{{ end }}
