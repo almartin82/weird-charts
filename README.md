@@ -16,7 +16,7 @@ If it's a tweet, take a look at [470](https://raw.githubusercontent.com/almartin
 ```
 ---
 date: 2022-07-30
-contributor: Andrew
+contributor: Andy
 tags:
 - grimacing
 ---
