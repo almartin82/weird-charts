@@ -2,7 +2,7 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'weird charts'
 theme = 'etch'
-paginate = 15
+paginate = 5
 [taxonomies]
   tag = 'tags'
   contributor = 'contributor'
