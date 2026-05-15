@@ -1,1 +1,4 @@
 .DS_Store
+.gstack/
+public/
+.hugo_build.lock
