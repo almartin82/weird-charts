@@ -5,7 +5,7 @@
     --fg-faint: #888;
     --accent: #b14b1f;
     --rule: #e3e0d6;
-    --maxw: 64rem;
+    --maxw: 1024px;
     --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 }
@@ -72,7 +72,7 @@ header#banner .brand-block {
 
 header#banner h1 {
     font-family: var(--font-sans);
-    font-size: 2.1rem;
+    font-size: 34px;
     font-weight: 700;
     margin: 0;
     letter-spacing: -0.02em;
@@ -87,17 +87,17 @@ header#banner h1 a {
 header#banner .tagline {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: 20px;
     color: var(--fg-muted);
-    margin: 0.4rem 0 0;
+    margin: 8px 0 0;
     line-height: 1.4;
 }
 
 header#banner .attribution {
     font-family: var(--font-sans);
-    font-size: 0.85rem;
+    font-size: 15px;
     color: var(--fg-faint);
-    margin: 0.5rem 0 0;
+    margin: 10px 0 0;
 }
 
 header#banner .attribution a {
@@ -116,10 +116,10 @@ header#banner nav.site-nav {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.5rem;
-    font-size: 0.95rem;
+    gap: 8px;
+    font-size: 17px;
     flex-shrink: 0;
-    padding-top: 0.4rem;
+    padding-top: 8px;
 }
 
 header#banner nav.site-nav a {
@@ -147,10 +147,10 @@ header#banner nav.site-nav a.cta {
 
 footer#footer {
     font-family: var(--font-sans);
-    font-size: 0.85rem;
+    font-size: 16px;
     color: var(--fg-faint);
-    margin-top: 5rem;
-    padding-top: 1.5rem;
+    margin-top: 80px;
+    padding-top: 24px;
     border-top: 1px solid var(--rule);
 }
 
