@@ -2,21 +2,61 @@
 
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
     {{ range $paginator.Pages }}
-        
+
     {{- partial "postblock.html" . -}}
 
     {{- end }}
 </ul>
 
-<!-- Add navigation links if there are more pages -->
-{{ if or .Paginator.HasPrev .Paginator.HasNext }}
-  more weird charts? 
-{{ end }}
-
-{{ if .Paginator.HasPrev }}
-  <a href="{{ .Paginator.Prev.URL }}">Previous</a>
-{{ end }}
-
 {{ if .Paginator.HasNext }}
-|  <a href="{{ .Paginator.Next.URL }}">Next</a>
+<div id="infinite-sentinel" data-next="{{ .Paginator.Next.URL }}" aria-hidden="true"></div>
+<noscript>
+    <p>more weird charts? <a href="{{ .Paginator.Next.URL }}">Next</a></p>
+</noscript>
+<script>
+(function () {
+    var sentinel = document.getElementById('infinite-sentinel');
+    if (!sentinel || !('IntersectionObserver' in window)) return;
+    var loading = false;
+    var nextUrl = sentinel.getAttribute('data-next');
+
+    function loadNext() {
+        if (loading || !nextUrl) return;
+        loading = true;
+        fetch(nextUrl, { credentials: 'same-origin' })
+            .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
+            .then(function (html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var nextList = doc.getElementById('posts');
+                var posts = document.getElementById('posts');
+                if (nextList && posts) {
+                    while (nextList.firstChild) posts.appendChild(nextList.firstChild);
+                }
+                var nextSentinel = doc.getElementById('infinite-sentinel');
+                if (nextSentinel) {
+                    nextUrl = nextSentinel.getAttribute('data-next');
+                } else {
+                    nextUrl = null;
+                    observer.disconnect();
+                    sentinel.remove();
+                }
+                if (window.twttr && window.twttr.widgets) {
+                    window.twttr.widgets.load(posts);
+                }
+                loading = false;
+                if (nextUrl && sentinel.getBoundingClientRect().top < window.innerHeight + 600) {
+                    loadNext();
+                }
+            })
+            .catch(function () { loading = false; });
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) loadNext();
+        });
+    }, { rootMargin: '600px 0px' });
+    observer.observe(sentinel);
+})();
+</script>
 {{ end }}
