@@ -1,13 +1,8 @@
 <header id="banner">
     <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-    a love letter to strange and/or captivating charts, brought to you by <a href="https://github.com/almartin82">almartin</a>. <a href="https://github.com/almartin82/weird-charts#contributing">contribute!</a>
-    <nav>
-        <ul>
-            {{ range .Site.Menus.main.ByWeight -}}
-            <li>
-                {{ .Pre }}<a href="{{ .URL }}" title="{{ .Title }}">{{- .Name -}}</a>{{ .Post }}
-            </li>
-            {{- end }}
-        </ul>
+    <nav class="site-nav">
+        <a class="cta" href="https://x.com/weirdcharts">follow @weirdcharts</a>
+        <a href="https://github.com/almartin82/weird-charts#contributing">contribute</a>
+        <a href="https://almart.in">almart.in</a>
     </nav>
 </header>

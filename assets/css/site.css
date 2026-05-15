@@ -1,0 +1,123 @@
+:root {
+    --bg: #fafaf7;
+    --fg: #1a1a1a;
+    --fg-muted: #555;
+    --fg-faint: #888;
+    --accent: #b14b1f;
+    --rule: #e3e0d6;
+    --maxw: 42rem;
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #14140f;
+        --fg: #ece8d9;
+        --fg-muted: #b3aea0;
+        --fg-faint: #807a6d;
+        --accent: #e08a5c;
+        --rule: #2a2820;
+    }
+}
+
+html {
+    font-family: var(--font-serif);
+    color: var(--fg);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+    color: var(--fg);
+    background: var(--bg);
+}
+
+main#content a,
+main#content ul#posts li a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+}
+
+main#content a:hover,
+main#content ul#posts li a:hover {
+    color: var(--accent);
+    text-decoration-thickness: 2px;
+}
+
+main#content p {
+    color: var(--fg);
+}
+
+header#banner {
+    font-family: var(--font-sans);
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1rem;
+    margin: 0 0 3rem;
+}
+
+header#banner h1 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 auto 0 0;
+    letter-spacing: -0.02em;
+}
+
+header#banner h1 a {
+    color: var(--fg);
+    text-decoration: none;
+}
+
+header#banner nav.site-nav {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.95rem;
+}
+
+header#banner nav.site-nav a {
+    color: var(--fg-muted);
+    text-decoration: none;
+}
+
+header#banner nav.site-nav a:hover {
+    color: var(--accent);
+}
+
+header#banner nav.site-nav a.cta {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+footer#footer {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--fg-faint);
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+}
+
+footer#footer p {
+    margin: 0;
+    color: var(--fg-faint);
+}
+
+footer#footer a {
+    color: var(--fg-muted);
+    text-decoration: none;
+}
+
+footer#footer a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
