@@ -6,6 +6,26 @@ weird-charts is a [hugo](https://gohugo.io/) static site, backed by the magic of
 ## contributing
 submissions are welcome!  send in your weird charts, be rewarded with a [contributor](https://weirdcharts.com/contributor/) page for eternity. 
 
+### 🌟 RECOMMENDED: USE THE CLAUDE CODE SKILL! 🌟
+
+This repo ships with a [Claude Code](https://claude.com/claude-code) skill that does the whole thing for you. Three steps:
+
+1. **fork + clone** the repo:
+   ```bash
+   gh repo fork almartin82/weird-charts --clone
+   cd weird-charts
+   ```
+2. **run the skill** in Claude Code, pasting any tweet URL or image URL:
+   ```
+   /add-post https://x.com/someone/status/1234567890
+   ```
+   It picks the next post number, assigns quirky tags (you can override them), writes the markdown file, commits, pushes to a branch on your fork, and opens a PR back against this repo.
+3. **wait for the PR to be merged.** That's it.
+
+If you don't use Claude Code, the manual instructions below still work fine.
+
+### manual contributing
+
 To contribute, **open a PR against this repo**.  Add a new markdown document to [`content/posts`](https://github.com/almartin82/weird-charts/tree/main/content/posts).
 
 You can look at [`content/posts`](https://github.com/almartin82/weird-charts/tree/main/content/posts) to get a sense of what a post looks like. Here are some examples:

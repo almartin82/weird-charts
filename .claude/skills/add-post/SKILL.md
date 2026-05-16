@@ -69,7 +69,20 @@ tags:
 ```
 Always include a citation link to the source page below the image.
 
-### 5. Commit + push
+### 5. Detect: canonical repo or a fork?
+
+Before committing, figure out where you are:
+
+```bash
+git remote get-url origin
+```
+
+- If origin is `almartin82/weird-charts` (any of `git@github.com:almartin82/weird-charts.git`, `https://github.com/almartin82/weird-charts.git`, etc.) → **canonical path** (step 6a).
+- Anything else (a fork) → **PR path** (step 6b). This is the right path for any contributor who isn't almartin82.
+
+Also update the `contributor` field in the frontmatter: on the canonical repo it stays `"Andy"`, but on a fork, ask the user what name they want on their [contributor page](https://weirdcharts.com/contributor/) (default to their git `user.name` if they don't care).
+
+### 6a. Canonical path — commit + push to main
 
 Terse lowercase commit message describing the chart (`win expectancy`, `browns`).
 NEVER add `Co-Authored-By` or any AI attribution. Push to `main` — this deploys the site.
@@ -80,8 +93,35 @@ git commit -m "<terse message>"
 git push
 ```
 
+### 6b. Fork path — branch, push, open a PR
+
+The contributor isn't almartin82, so don't push to their `main`. Instead, open a PR back against `almartin82/weird-charts` so the assignment actually completes.
+
+```bash
+# branch name: short, lowercase, derived from the chart subject
+git checkout -b add-<short-slug>
+
+git add content/posts/NNNNN.md
+git commit -m "<terse message>"
+git push -u origin HEAD
+
+gh pr create \
+  --repo almartin82/weird-charts \
+  --base main \
+  --title "<terse message>" \
+  --body "Adds post NNNNN via the add-post Claude Code skill.
+
+Tags: tag one, tag two
+Source: <original tweet/image URL>"
+```
+
+NEVER add `Co-Authored-By` or any AI attribution to the commit or PR body.
+
+If `gh` isn't installed or auth'd, fall back to printing the compare URL the user can click:
+`https://github.com/almartin82/weird-charts/compare/main...<their-username>:<branch>?expand=1`
+
 ## Notes
 
-- `contributor` is almost always `"Andy"`.
-- The numbering scheme is purely cosmetic (keeps files sorting nicely).
+- `contributor` defaults to `"Andy"` on the canonical repo. On a fork, use the contributor's name.
+- The numbering scheme is purely cosmetic (keeps files sorting nicely). On a fork, still pick the next number from `content/posts/` — collisions are fine, the maintainer can renumber on merge.
 - If the oEmbed render looks broken on the live site, the raw-image path is the fallback.
