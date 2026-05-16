@@ -69,6 +69,22 @@ tags:
 ```
 Always include a citation link to the source page below the image.
 
+### 4c. Cache the tweet (tweet posts only)
+
+Run the tweet cache script for the new ID:
+
+```bash
+node scripts/cache_tweets.mjs <STATUS_ID>
+```
+
+This downloads the tweet's media to `static/tweet-media/<id>/` and writes metadata to
+`data/tweets/<id>.json`. The shortcode reads from this cache and renders a static `<img>`
+card with author and permalink — no `widgets.js`, no iframe, no cross-origin handshake at
+runtime. Without this step the shortcode silently falls back to the runtime widget, which
+defeats the caching strategy and makes mobile load extremely slow.
+
+Both the JSON and the downloaded media must be `git add`-ed in step 6.
+
 ### 5. Detect: canonical repo or a fork?
 
 Before committing, figure out where you are:
@@ -88,10 +104,12 @@ Terse lowercase commit message describing the chart (`win expectancy`, `browns`)
 NEVER add `Co-Authored-By` or any AI attribution. Push to `main` — this deploys the site.
 
 ```bash
-git add content/posts/NNNNN.md
+git add content/posts/NNNNN.md data/tweets/<id>.json static/tweet-media/<id>
 git commit -m "<terse message>"
 git push
 ```
+
+For raw-image posts, skip the `data/` and `static/tweet-media/` paths (no cache to add).
 
 ### 6b. Fork path — branch, push, open a PR
 
@@ -101,7 +119,7 @@ The contributor isn't almartin82, so don't push to their `main`. Instead, open a
 # branch name: short, lowercase, derived from the chart subject
 git checkout -b add-<short-slug>
 
-git add content/posts/NNNNN.md
+git add content/posts/NNNNN.md data/tweets/<id>.json static/tweet-media/<id>
 git commit -m "<terse message>"
 git push -u origin HEAD
 

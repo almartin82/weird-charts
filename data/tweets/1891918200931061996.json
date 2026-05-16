@@ -1,0 +1,19 @@
+{
+  "id": "1891918200931061996",
+  "text": "I just pushed a new paper to arXiv. I realized that a lot of my previous work on robust losses and nerf-y things was dancing around something simpler: a slight tweak to the classic Box-Cox power transform that makes it much more useful and stable. It's this f(x, λ) here: https://t.co/GZsA8BYbEe",
+  "author": {
+    "handle": "jon_barron",
+    "name": "Jon Barron"
+  },
+  "created_at": "2025-02-18T18:30:23.000Z",
+  "permalink": "https://twitter.com/jon_barron/status/1891918200931061996",
+  "media": [
+    {
+      "path": "/tweet-media/1891918200931061996/0.jpg",
+      "type": "video",
+      "width": 1652,
+      "height": 1932,
+      "alt": null
+    }
+  ]
+}

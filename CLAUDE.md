@@ -13,13 +13,34 @@ and a few quirky tags.
 
 - **Hugo** static site, theme `etch` (vendored in `themes/etch/`)
 - `content/posts/NNNNN.md` — one markdown file per chart, zero-padded 5-digit number
-- `layouts/shortcodes/` — `tweet-simple.html` (Twitter/X oEmbed), `rawhtml` (raw `<img>`)
+- `layouts/shortcodes/` — `tweet-simple.html` (renders a cached static card from `data/tweets/<id>.json` + `/tweet-media/<id>/*`; falls back to a deferred oEmbed widget if uncached), `rawhtml` (raw `<img>`)
 - `assets/css/site.css` — project-level style overrides on top of the etch theme. See `docs/styling.md`
 - `layouts/partials/{head,header,footer}.html` — overrides of the etch theme's partials
+- `data/tweets/<id>.json` and `static/tweet-media/<id>/` — local cache populated by `scripts/cache_tweets.mjs`. Both must be committed alongside the post markdown so the build runs offline and the rendered site has zero dependency on Twitter at runtime
 - `.github/workflows/hugo.yaml` — builds and deploys to GitHub Pages on push to `main`
 - `.github/workflows/retweet.yaml` + `scripts/retweet_new_posts.py` — retweets newly added posts from @weirdcharts on push to `main`. See `docs/security.md`
-- `hugo.toml` — `paginate = 50` (50 charts on the front page; tradeoff is page weight from many Twitter iframes)
+- `hugo.toml` — `paginate = 10` (10 posts on the front page; infinite scroll loads more on demand)
 - Taxonomies: `tags` and `contributor`
+
+## Tweet caching (this is the runtime perf story; don't break it)
+
+Tweets are rendered as **static `<img>` cards served from our own origin**, not as Twitter widgets.
+Twitter's `widgets.js` and the per-tweet iframe each cost ~250KB-2MB on mobile; the cache
+eliminates both. When you add a tweet post you MUST also run the cache script and commit
+its output alongside the post markdown:
+
+```bash
+node scripts/cache_tweets.mjs <STATUS_ID>
+git add data/tweets/<STATUS_ID>.json static/tweet-media/<STATUS_ID>
+```
+
+- Without the cache, `tweet-simple` silently falls back to the deferred widget. This works
+  but ships back the heavy mobile path. Don't skip the cache step.
+- To refresh every cached tweet: `node scripts/cache_tweets.mjs --force`.
+- To cache anything missing (e.g., after pulling new posts a collaborator made): `node scripts/cache_tweets.mjs`
+  scans `content/posts/*.md` and caches anything not yet in `data/tweets/`.
+
+Cache size budget: ~150KB media + ~5KB JSON per tweet.
 
 ## Git & Commits
 

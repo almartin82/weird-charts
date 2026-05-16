@@ -106,6 +106,76 @@ main#content .wc-tweet-defer a {
     text-decoration: none;
 }
 
+main#content .wc-tweet-card {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 100%;
+    text-align: center;
+}
+
+main#content .wc-tweet-image-link {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+    text-decoration: none !important;
+    border: 0 !important;
+}
+
+main#content .wc-tweet-image-link + .wc-tweet-image-link {
+    margin-top: 0.75rem;
+}
+
+main#content .wc-tweet-card img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+main#content .wc-tweet-card figcaption {
+    text-align: left;
+    margin: 0.75rem 0 0;
+    line-height: 1.45;
+}
+
+main#content .wc-tweet-text {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--fg);
+    margin: 0 0 0.25rem !important;
+}
+
+main#content .wc-tweet-attrib {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--fg-faint);
+    margin: 0 !important;
+}
+
+main#content .wc-tweet-attrib a {
+    color: var(--fg-muted) !important;
+    text-decoration: none !important;
+}
+
+main#content .wc-tweet-attrib a:hover {
+    color: var(--accent) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+}
+
+main#content .wc-tweet-media-badge {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    padding: 0.15rem 0.5rem;
+    background: rgba(20, 20, 15, 0.6);
+    color: #ece8d9;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
 main#content img {
     display: block;
     margin-left: auto;

@@ -1,8 +1,32 @@
-<div class="wc-tweet">
-    {{ $id := index .Params 0 }}
-    {{ $apiURL := printf "https://publish.twitter.com/oembed?dnt=1&hide_thread=1&url=%s" (printf "https://twitter.com/x/status/%s" $id | urlquery) }}
-    {{ $html := (getJSON $apiURL).html }}
-    {{ $html = replace $html `class="twitter-tweet"` `class="wc-tweet-defer"` }}
-    {{ $html = replace $html `<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>` "" }}
-    {{ $html | safeHTML }}
-</div>
+{{- $id := index .Params 0 -}}
+{{- $cached := index .Site.Data.tweets $id -}}
+{{- if $cached -}}
+    {{- $text := $cached.text -}}
+    {{- /* strip the trailing "https://t.co/xxx" self-link that points at the attached media we're already showing */ -}}
+    {{- $text = replaceRE `\s*https://t\.co/\S+\s*$` "" $text -}}
+    <figure class="wc-tweet-card">
+        {{- range $i, $m := $cached.media -}}
+            <a class="wc-tweet-image-link" href="{{ $cached.permalink }}" rel="noopener">
+                <img src="{{ $m.path }}"
+                     {{ with $m.alt }}alt="{{ . }}"{{ else }}alt="chart shared by @{{ $cached.author.handle }}"{{ end }}
+                     loading="lazy"
+                     {{ with $m.width }}width="{{ . }}"{{ end }}
+                     {{ with $m.height }}height="{{ . }}"{{ end }}>
+                {{- if ne $m.type "photo" -}}<span class="wc-tweet-media-badge">{{ if eq $m.type "video" }}video{{ else }}gif{{ end }}</span>{{- end -}}
+            </a>
+        {{- end -}}
+        <figcaption>
+            {{- with $text -}}<p class="wc-tweet-text">{{ . }}</p>{{- end -}}
+            <p class="wc-tweet-attrib">— <a href="{{ $cached.permalink }}" rel="noopener">@{{ $cached.author.handle }}</a></p>
+        </figcaption>
+    </figure>
+{{- else -}}
+    {{- /* fallback: tweet hasn't been cached yet, fetch oembed at build time and lazy-mount the official widget */ -}}
+    <div class="wc-tweet">
+        {{- $apiURL := printf "https://publish.twitter.com/oembed?dnt=1&hide_thread=1&url=%s" (printf "https://twitter.com/x/status/%s" $id | urlquery) -}}
+        {{- $html := (getJSON $apiURL).html -}}
+        {{- $html = replace $html `class="twitter-tweet"` `class="wc-tweet-defer"` -}}
+        {{- $html = replace $html `<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>` "" -}}
+        {{- $html | safeHTML -}}
+    </div>
+{{- end -}}
