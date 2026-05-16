@@ -7,3 +7,4 @@ public/
 .agents/
 .claude/skills/impeccable
 skills-lock.json
+.impeccable/

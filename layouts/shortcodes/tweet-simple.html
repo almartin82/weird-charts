@@ -2,7 +2,7 @@
     
     <!-- new API -->
     {{ $id := index .Params 0 }}
-    {{ $apiURL := printf "https://publish.twitter.com/oembed?dnt=1&hide_thread=1&theme=dark&url=%s" (printf "https://twitter.com/x/status/%s" $id | urlquery) }}
+    {{ $apiURL := printf "https://publish.twitter.com/oembed?dnt=1&hide_thread=1&url=%s" (printf "https://twitter.com/x/status/%s" $id | urlquery) }}
     {{ (getJSON $apiURL).html | safeHTML }}
 
 </div>

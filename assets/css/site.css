@@ -30,6 +30,7 @@ html {
 }
 
 body {
+    width: auto;
     max-width: var(--maxw);
     margin: 0 auto;
     padding: 3rem 1.5rem 6rem;
@@ -110,27 +111,9 @@ header#banner .tagline {
     font-family: var(--font-serif);
     font-style: italic;
     font-size: 20px;
-    color: var(--fg-muted);
+    color: var(--accent);
     margin: 8px 0 0;
     line-height: 1.4;
-}
-
-header#banner .attribution {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    color: var(--fg-faint);
-    margin: 10px 0 0;
-}
-
-header#banner .attribution a {
-    color: var(--fg-muted);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-}
-
-header#banner .attribution a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
 }
 
 header#banner nav.site-nav {
@@ -165,6 +148,70 @@ header#banner nav.site-nav a.cta {
         gap: 1.25rem;
         padding-top: 0;
     }
+}
+
+main#content .taxonomy-title,
+main#content .term-title {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: var(--fg);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+main#content .term-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+}
+
+ul.terms-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    line-height: 1.7;
+}
+
+ul.terms-list li.term-item {
+    margin: 0;
+    padding: 0;
+}
+
+ul.terms-list .term-count {
+    color: var(--fg-faint);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    margin-left: 0.4em;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.term-nav {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    margin: 0 0 2rem;
+}
+
+main#content .term-nav a {
+    color: var(--fg-muted);
+    text-decoration: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+main#content .term-nav a::before {
+    content: "← ";
+}
+
+main#content .term-nav a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
 }
 
 footer#footer {

@@ -1,6 +1,6 @@
 {{ define "main" }}
-<h2>Posts tagged: {{ .Data.Term }}</h2>
-<br>
+<h2 class="term-title">tagged <em>{{ .Data.Term }}</em></h2>
+<p class="term-nav"><a href="{{ "tags/" | absURL }}">all tags</a></p>
 {{- range .Pages }}
     {{- partial "postblock.html" . -}}
 {{- end }}

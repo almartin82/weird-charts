@@ -44,7 +44,7 @@ typography:
     lineHeight: 1.4
   wordmark:
     fontFamily: 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
-    fontSize: "0.95rem"
+    fontSize: "15px"
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "-0.02em"
@@ -74,11 +74,8 @@ components:
     textColor: "{colors.carbon}"
     typography: "{typography.display}"
   tagline:
-    textColor: "{colors.lead-mid}"
+    textColor: "{colors.cinnabar}"
     typography: "{typography.tagline}"
-  attribution:
-    textColor: "{colors.lead-faint}"
-    typography: "{typography.attribution}"
   link:
     textColor: "{colors.cinnabar}"
     typography: "{typography.body}"
@@ -114,14 +111,14 @@ The chart is the hero, the tag is the caption, and the site frame is the museum 
 A two-tone notebook palette with a single Cinnabar accent. Both modes are warm-tinted; cool grays are forbidden.
 
 ### Primary
-- **Cinnabar** (`#b14b1f`, light mode): pigment of medieval manuscripts. Used for all anchor links, the "follow @weirdcharts" CTA in the nav, and hover states.
+- **Cinnabar** (`#b14b1f`, light mode): pigment of medieval manuscripts. Used for the tagline ("a love letter to strange and/or captivating charts"), all anchor links, the "follow @weirdcharts" CTA in the nav, term-title emphasis (e.g. the term name on `/tags/grimacing/`), and hover states.
 - **Cinnabar Glow** (`#e08a5c`, dark mode): the same hue, lifted in lightness for legibility against Tar.
 
 ### Neutral (light mode)
 - **Bench White** (`#fafaf7`): page background; the writing surface.
 - **Carbon** (`#1a1a1a`): primary text; the site banner; the wordmark name.
-- **Lead Mid** (`#555555`): the tagline copy; nav links at rest; the attribution byline.
-- **Lead Faint** (`#888888`): the wordmark pipe separator; the nav-attribution "follow @weirdcharts" link in non-CTA state; post-meta.
+- **Lead Mid** (`#555555`): nav links at rest; term-page back-links.
+- **Lead Faint** (`#888888`): the wordmark pipe separator; post-meta; term counts on the taxonomy index.
 - **Bench Mark** (`#e3e0d6`): rule lines, dividers, the bottom border under the site banner.
 
 ### Neutral (dark mode)
@@ -133,7 +130,7 @@ A two-tone notebook palette with a single Cinnabar accent. Both modes are warm-t
 
 ### Named Rules
 
-**The One Cinnabar Rule.** Cinnabar (or Cinnabar Glow in dark) is the only accent color used on more than a few pixels. It appears on links, on the nav CTA, on the wordmark hover. Never as a gradient. Never with a second accent.
+**The One Cinnabar Rule.** Cinnabar (or Cinnabar Glow in dark) is the only accent color used on more than a few pixels. It appears on the tagline italic ("the brief in the brand's ink"), all links, the nav CTA, term-title emphasis, and the wordmark hover. Never as a gradient. Never with a second accent.
 
 **The No Cool Grays Rule.** Every neutral carries warmth. Never use `#fff`, `#000`, or cool-axis grays. The notebook is on a wooden desk.
 
@@ -144,13 +141,13 @@ A two-tone notebook palette with a single Cinnabar accent. Both modes are warm-t
 **Display Font:** ui-sans-serif system stack (system font, no webfonts).
 **Body Font:** Iowan Old Style, with Palatino / Palatino Linotype / Georgia as fallbacks.
 
-**Character:** a warm, considered serif body for tagline, dates, and reading prose. A precise sans for the wordmark, the site banner, the nav, the attribution byline, and the footer. The system-font choice is deliberate; no custom faces, no webfont loads, text renders instantly.
+**Character:** a warm, considered serif body for tagline, dates, and reading prose. A precise sans for the wordmark, the site banner, the nav, taxonomy titles, and the footer. The system-font choice is deliberate; no custom faces, no webfont loads, text renders instantly.
 
 ### Hierarchy
-- **Wordmark** (sans, 700, 0.95rem, line-height 1, letter-spacing -0.02em): the canonical `Andy Martin | almart.in` wordmark above the site banner.
+- **Wordmark** (sans, 700, 15px, line-height 1, letter-spacing -0.02em): the canonical `Andy Martin | almart.in` wordmark above the site banner.
 - **Site banner** (sans, 700, 34px, line-height 1.1, letter-spacing -0.02em): the "weird charts" wordmark at the top of every page, below the universe wordmark.
-- **Tagline** (serif italic, 400, 20px, line-height 1.4): the "a love letter to strange and/or captivating charts" line below the banner.
-- **Attribution** (sans, 400, 15px, line-height 1.4): the "by Andy Martin (almart.in)" byline.
+- **Tagline** (serif italic, 400, 20px, line-height 1.4, Cinnabar): the "a love letter to strange and/or captivating charts" line below the banner. The brief, in the brand's ink.
+- **Taxonomy / term title** (sans, 600, 24px, line-height 1.2, letter-spacing -0.01em): the `<h2>` on `/tags/`, `/contributor/`, and individual term pages. On term pages, the term name itself is rendered in serif italic Cinnabar via `<em>`.
 - **Nav link** (sans, 400, 17px): the "contribute" / "follow @weirdcharts" page-level nav.
 - **Nav CTA** (sans, 700, 17px): the active CTA variant of nav-link in Cinnabar.
 - **Body** (serif, 400, 1.6rem ≈ 16px at the etch theme's 62.5% root): paragraph copy, post dates, captions.
@@ -162,7 +159,7 @@ A two-tone notebook palette with a single Cinnabar accent. Both modes are warm-t
 
 **The System-Font Rule.** Use the system font stack. No webfonts. The instant-load, no-pretense signal is the choice, not a fallback.
 
-**The Sans-for-Structure Rule.** Sans-serif carries structure (wordmark, banner, nav, attribution, footer). Serif carries voice (tagline, dates, prose). Iowan Old Style's italic is the right register for the tagline because the tagline is the brief.
+**The Sans-for-Structure Rule.** Sans-serif carries structure (wordmark, banner, nav, taxonomy titles, footer). Serif carries voice (tagline, term-name emphasis, dates, prose). Iowan Old Style's italic is the right register for the tagline because the tagline is the brief.
 
 ## 4. Elevation
 
@@ -185,7 +182,7 @@ State changes use color shift and underline thickness change, not shadow.
 ### Universe wordmark
 - **Text:** `Andy Martin | almart.in`
 - **Linked to:** `https://almart.in/`
-- **Typography:** wordmark (sans, 700, 0.95rem, -0.02em letter-spacing)
+- **Typography:** wordmark (sans, 700, 15px, -0.02em letter-spacing)
 - **Name color:** Carbon (Bone in dark). Pipe: Lead Faint (Faded Bone in dark), weight 400.
 - **Hover:** underline appears with 3px offset.
 - **Position:** above the site banner, on every page. The "you are in Andy's universe" signal.
@@ -194,8 +191,7 @@ State changes use color shift and underline thickness change, not shadow.
 - **Layout:** flex with brand-block on the left and nav on the right; wraps at narrow viewports.
 - **Bottom border:** 1px Bench Mark, padding-bottom 1.5rem, margin-bottom 3rem.
 - **Banner h1:** sans, 700, 34px, line-height 1.1, letter-spacing -0.02em, no underline at rest.
-- **Tagline:** serif italic, 20px, Lead Mid, 8px top margin.
-- **Attribution:** sans, 15px, Lead Faint. The "almart.in" link is Lead Mid with a Bench Mark bottom border; hover shifts both to Cinnabar.
+- **Tagline:** serif italic, 20px, Cinnabar, 8px top margin. The brief, in the brand's ink. The universe wordmark above the banner does the attribution work; no separate byline is needed.
 
 ### Navigation
 - **Position:** top-right of the banner.
@@ -206,6 +202,16 @@ State changes use color shift and underline thickness change, not shadow.
 ### Post links (homepage feed and tag / contributor pages)
 - **Style:** Cinnabar, underline 1px with 2px offset.
 - **Hover:** underline thickness lifts to 2px.
+
+### Taxonomy index (`/tags/`, `/contributor/`)
+- **Title:** `<h2 class="taxonomy-title">` rendered sans, 600, 24px, Carbon (Bone in dark), lowercased.
+- **List:** `<ul class="terms-list">`, serif italic body type (1.8rem, line-height 1.7). Each row is the term name (lowercase, as written in front matter, spaces preserved) followed by a small Lead Faint count in sans 13px.
+- **No bullets, no rule lines between rows.** The page reads like the back-of-book index: a quiet directory in the book's own typeface.
+
+### Term page (`/tags/<term>/`, `/contributor/<name>/`)
+- **Title:** `<h2 class="term-title">` reading `tagged <em>{term}</em>` or `by <em>{name}</em>`. The `<em>` carries the term itself in serif italic Cinnabar; the framing words ("tagged", "by") stay in Carbon sans. The term is what's editorial; the frame is structural.
+- **Back-link:** `<p class="term-nav"><a>all tags</a></p>` (or `all contributors`). Sans, 14px, Lead Mid, with an `←` glyph prepended via CSS pseudo-element. Hover lifts to Cinnabar with underline.
+- **Below the title and nav:** the standard postblock partial repeats, same as the homepage.
 
 ### Body / post content
 - **Paragraph:** serif (Iowan), 400, 1.6rem (etch theme convention; visually 16px at 62.5% root), Carbon (Bone in dark).

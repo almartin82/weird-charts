@@ -1,6 +1,6 @@
 {{ define "main" }}
-<h2>Posts by: {{ .Data.Term }}</h2>
-<br>
+<h2 class="term-title">by <em>{{ .Data.Term }}</em></h2>
+<p class="term-nav"><a href="{{ "contributor/" | absURL }}">all contributors</a></p>
 {{- range .Pages }}
     {{- partial "postblock.html" . -}}
 {{- end }}
