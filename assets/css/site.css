@@ -37,6 +37,28 @@ body {
     background: var(--bg);
 }
 
+.al-brand {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    text-decoration: none;
+    margin: 0 0 18px;
+}
+
+.al-brand:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.al-brand-sep {
+    color: var(--fg-faint);
+    font-weight: 400;
+    margin: 0 0.15em;
+}
+
 main#content a,
 main#content ul#posts li a {
     color: var(--accent);
