@@ -78,6 +78,18 @@ main#content p {
     color: var(--fg);
 }
 
+main#content .twitter-tweet,
+main#content iframe[id^="twitter-widget"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+main#content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 header#banner {
     display: flex;
     align-items: flex-start;
