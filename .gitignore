@@ -2,3 +2,8 @@
 .gstack/
 public/
 .hugo_build.lock
+
+# skill installer state (npx skills add ...)
+.agents/
+.claude/skills/impeccable
+skills-lock.json
