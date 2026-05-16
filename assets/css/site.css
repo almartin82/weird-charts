@@ -84,6 +84,28 @@ main#content iframe[id^="twitter-widget"] {
     margin-right: auto !important;
 }
 
+main#content .wc-tweet-defer {
+    display: block;
+    margin: 1.25rem auto;
+    padding: 1.25rem 1.5rem;
+    max-width: 550px;
+    background: rgba(177, 75, 31, 0.04);
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--fg-muted);
+    border: 0;
+}
+
+main#content .wc-tweet-defer p {
+    margin: 0 0 0.5rem;
+}
+
+main#content .wc-tweet-defer a {
+    color: var(--fg-muted);
+    text-decoration: none;
+}
+
 main#content img {
     display: block;
     margin-left: auto;

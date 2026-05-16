@@ -2,3 +2,44 @@
     <p><a href="https://x.com/weirdcharts">@weirdcharts</a> · <a href="https://github.com/almartin82/weird-charts">github</a> · <a href="https://github.com/almartin82/weird-charts#contributing">contribute</a></p>
 </footer>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+(function () {
+    function upgrade(el) {
+        el.classList.remove('wc-tweet-defer');
+        el.classList.add('twitter-tweet');
+        function load() { window.twttr.widgets.load(el.parentNode); }
+        if (window.twttr && window.twttr.widgets && window.twttr.widgets.load) {
+            load();
+        } else {
+            var tries = 0;
+            (function poll() {
+                if (window.twttr && window.twttr.widgets && window.twttr.widgets.load) return load();
+                if (++tries > 200) return;
+                setTimeout(poll, 60);
+            })();
+        }
+    }
+
+    if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.wc-tweet-defer').forEach(upgrade);
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            observer.unobserve(entry.target);
+            upgrade(entry.target);
+        });
+    }, { rootMargin: '600px 0px' });
+
+    function observeAll(root) {
+        (root || document).querySelectorAll('.wc-tweet-defer').forEach(function (el) {
+            observer.observe(el);
+        });
+    }
+
+    window.wcObserveTweets = observeAll;
+    observeAll();
+})();
+</script>

@@ -42,8 +42,8 @@
                     observer.disconnect();
                     sentinel.remove();
                 }
-                if (window.twttr && window.twttr.widgets) {
-                    window.twttr.widgets.load(posts);
+                if (window.wcObserveTweets) {
+                    window.wcObserveTweets(posts);
                 }
                 loading = false;
                 if (nextUrl && sentinel.getBoundingClientRect().top < window.innerHeight + 600) {

@@ -1,8 +1,8 @@
-<div>
-    
-    <!-- new API -->
+<div class="wc-tweet">
     {{ $id := index .Params 0 }}
     {{ $apiURL := printf "https://publish.twitter.com/oembed?dnt=1&hide_thread=1&url=%s" (printf "https://twitter.com/x/status/%s" $id | urlquery) }}
-    {{ (getJSON $apiURL).html | safeHTML }}
-
+    {{ $html := (getJSON $apiURL).html }}
+    {{ $html = replace $html `class="twitter-tweet"` `class="wc-tweet-defer"` }}
+    {{ $html = replace $html `<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>` "" }}
+    {{ $html | safeHTML }}
 </div>
