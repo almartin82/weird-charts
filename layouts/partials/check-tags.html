@@ -1,0 +1,27 @@
+{{/*
+  Build-time tag canonicalization guard.
+
+  Fails the build with errorf if two distinct tag display names urlize
+  to the same slug (e.g. `progress` vs `progress?` both -> /tags/progress/),
+  or if two distinct slugs share a display name (the inverse drift).
+
+  Invoked once from head.html. Cheap: iterates posts and tags, no I/O.
+*/}}
+{{ $byslug := dict }}
+{{ range where .Site.RegularPages "Section" "posts" }}
+  {{ range .Params.tags }}
+    {{ $name := . }}
+    {{ $slug := $name | urlize }}
+    {{ $cur := index $byslug $slug }}
+    {{ if not $cur }}
+      {{ $byslug = merge $byslug (dict $slug (slice $name)) }}
+    {{ else if not (in $cur $name) }}
+      {{ $byslug = merge $byslug (dict $slug (append $name $cur)) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ range $slug, $names := $byslug }}
+  {{ if gt (len $names) 1 }}
+    {{ errorf "tag-slug collision: %q maps to %d distinct display names: %s. Pick one canonical spelling in content/posts/*.md and rename the others." $slug (len $names) (delimit $names ", ") }}
+  {{ end }}
+{{ end }}
