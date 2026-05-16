@@ -1,7 +1,5 @@
 {{ define "main" }}
 <h2 class="term-title">tagged <em>{{ .Data.Term }}</em></h2>
 <p class="term-nav"><a href="{{ "tags/" | absURL }}">all tags</a></p>
-{{- range .Pages }}
-    {{- partial "postblock.html" . -}}
-{{- end }}
+{{- partial "posts.html" . -}}
 {{ end }}

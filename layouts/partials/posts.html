@@ -1,6 +1,7 @@
 <ul id="posts">
 
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ $pages := cond (eq .Kind "home") (where .Site.RegularPages "Type" "in" site.Params.mainSections) .Pages }}
+    {{ $paginator := .Paginate $pages }}
     {{ range $paginator.Pages }}
 
     {{- partial "postblock.html" . -}}
