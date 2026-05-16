@@ -128,6 +128,15 @@ header#banner .tagline {
     line-height: 1.4;
 }
 
+header#banner .tagline-aside {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--fg-faint);
+    margin: 4px 0 0;
+    line-height: 1.4;
+}
+
 header#banner nav.site-nav {
     font-family: var(--font-sans);
     display: flex;
