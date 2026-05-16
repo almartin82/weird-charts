@@ -2,7 +2,7 @@ baseURL = 'https://weirdcharts.com/'
 languageCode = 'en-us'
 title = 'weird charts'
 theme = 'etch'
-paginate = 50
+paginate = 10
 [taxonomies]
   tag = 'tags'
   contributor = 'contributor'
