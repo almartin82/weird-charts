@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fafaf7"/>
+  <rect x="80" y="540" width="1040" height="2" fill="#e3e0d6"/>
+  <text x="80" y="320" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="156" letter-spacing="-4" fill="#1a1a1a">weird charts</text>
+  <text x="80" y="400" font-family="Iowan Old Style, Palatino, Georgia, serif" font-style="italic" font-size="44" fill="#b14b1f">a love letter to strange and/or captivating charts</text>
+  <text x="80" y="580" font-family="Helvetica, Arial, sans-serif" font-weight="400" font-size="22" fill="#888888" letter-spacing="1">weirdcharts.com</text>
+</svg>

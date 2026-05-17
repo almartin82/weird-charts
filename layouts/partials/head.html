@@ -6,7 +6,28 @@
     <meta name="description" content="{{ . }}">
     {{ end }}
     {{ printf `<link rel="icon" type="image/svg+xml" href="%s">` ("favicon.svg" | absURL) | safeHTML }}
-    {{ printf `<link rel="shortcut icon" href="%s">` ("favicon.ico" | absURL) | safeHTML }}
+    {{ printf `<link rel="apple-touch-icon" sizes="180x180" href="%s">` ("apple-touch-icon.png" | absURL) | safeHTML }}
+    {{ printf `<link rel="mask-icon" href="%s" color="#b14b1f">` ("favicon-mask.svg" | absURL) | safeHTML }}
+    {{- $ogTitle := .Site.Title -}}
+    {{- if and .Title (not .IsHome) -}}
+        {{- if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+            {{- $ogTitle = .Title | lower -}}
+        {{- else -}}
+            {{- $ogTitle = .Title -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if and .IsPage (not .Title) -}}{{- with .File -}}{{- $ogTitle = printf "chart %s" .BaseFileName -}}{{- end -}}{{- end -}}
+    {{ $ogDesc := .Site.Params.description | default "a love letter to strange and/or captivating charts" -}}
+    <meta property="og:title" content="{{ $ogTitle }}">
+    <meta property="og:description" content="{{ $ogDesc }}">
+    <meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ printf `<meta property="og:image" content="%s">` ("og-default.png" | absURL) | safeHTML }}
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta name="twitter:card" content="summary_large_image">
+    {{ printf `<meta name="twitter:image" content="%s">` ("og-default.png" | absURL) | safeHTML }}
+    <meta name="twitter:title" content="{{ $ogTitle }}">
+    <meta name="twitter:description" content="{{ $ogDesc }}">
     {{ with .OutputFormats.Get "rss" -}}
         {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
@@ -32,5 +53,5 @@
     {{ printf `<link rel="stylesheet" href="%s">` $css.RelPermalink | safeHTML }}
 
     <link rel="canonical" href="{{ .Permalink }}" />
-    <title>{{ with .Title }}{{ . }}{{ else }}{{ if .IsPage }}chart {{ .File.BaseFileName }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}</title>
+    <title>{{ $ogTitle }}</title>
 </head>
