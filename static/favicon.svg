@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <style>
     .tile { fill: #fafaf7; }
-    .mark { stroke: #b14b1f; }
+    .mark { stroke: #b14b1f; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
     @media (prefers-color-scheme: dark) {
       .tile { fill: #14140f; }
       .mark { stroke: #e08a5c; }
     }
   </style>
   <rect class="tile" width="32" height="32"/>
-  <line class="mark" x1="6" y1="24" x2="26" y2="10" stroke-width="5" stroke-linecap="round"/>
+  <polyline class="mark" points="4,12 9,9 14,11 19,6 24,8 28,4"/>
+  <polyline class="mark" points="4,27 8,24 13,25 17,21 22,23 28,18"/>
 </svg>
