@@ -21,6 +21,18 @@
     }
 }
 
+::selection {
+    background: rgba(177, 75, 31, 0.18);
+    color: var(--fg);
+}
+
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        background: rgba(224, 138, 92, 0.22);
+        color: var(--fg);
+    }
+}
+
 html {
     font-family: var(--font-serif);
     color: var(--fg);

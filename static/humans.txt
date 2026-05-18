@@ -1,0 +1,40 @@
+                weird charts
+                ───────────────────────────────────
+                a love letter to strange and/or
+                captivating charts.
+
+                ▁▂▄▅▇█  ▁▄▂▇▅█
+
+
+/* HUMANS */
+
+                humans on this project
+
+              1 ┤ ████████████████████  andy
+              0 ┤
+                └─────────────────────
+                          (n=1)
+
+
+/* TEAM */
+
+                curator, design, code            andy martin
+                home                             https://almart.in
+                follow                           https://x.com/weirdcharts
+
+
+/* SITE */
+
+                hand-curated. reverse-chronological.
+                no ranking, no algorithm. taste is the algorithm.
+
+                hugo + the etch theme + one warm cinnabar accent.
+
+                source                           https://github.com/almartin82/weird-charts
+
+
+/* THANKS */
+
+                the chart-makers, named and unnamed.
+                every contributor who pinged a weird one.
+                nyt chartsnthings (rip).

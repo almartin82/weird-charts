@@ -6,3 +6,5 @@ paginate = 10
 [taxonomies]
   tag = 'tags'
   contributor = 'contributor'
+[minify.tdewolff.html]
+  keepComments = true
