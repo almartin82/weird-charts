@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="fof">
+    <figure class="fof-chart" aria-labelledby="fof-cap">
+        <svg viewBox="0 0 600 240" role="img" aria-label="A chart of pages on this site, with the page you requested marked missing at coordinate four-zero-four." preserveAspectRatio="xMidYMid meet">
+            <line x1="20" y1="210" x2="580" y2="210" class="fof-axis"/>
+            <g class="fof-data">
+                <circle cx="55"  cy="190" r="4"/>
+                <circle cx="125" cy="168" r="4"/>
+                <circle cx="195" cy="174" r="4"/>
+                <circle cx="265" cy="140" r="4"/>
+                <circle cx="335" cy="148" r="4"/>
+                <circle cx="405" cy="105" r="4"/>
+                <circle cx="475" cy="82"  r="4"/>
+            </g>
+            <line x1="545" y1="210" x2="545" y2="60" class="fof-missing-stem"/>
+            <circle cx="545" cy="60" r="7" class="fof-missing"/>
+            <text x="545" y="42" text-anchor="middle" class="fof-missing-label">404</text>
+        </svg>
+        <figcaption id="fof-cap">off the chart.</figcaption>
+    </figure>
+    <p class="fof-back">this page isn't in the archive. <a href="{{ "/" | absURL }}">back to the feed.</a></p>
+</section>
+{{ end }}

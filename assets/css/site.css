@@ -318,6 +318,90 @@ main#content .term-nav a:hover {
     text-decoration-thickness: 1px;
 }
 
+.end-of-feed {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--fg-faint);
+    text-align: center;
+    margin: 3rem auto 1rem;
+    letter-spacing: 0.01em;
+}
+
+.paginate-next {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    color: var(--fg-muted);
+    margin: 1.5rem 0 0;
+}
+
+main#content .fof {
+    margin: 1rem auto 3rem;
+    text-align: center;
+}
+
+main#content .fof-chart {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0;
+}
+
+main#content .fof-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.fof-axis {
+    stroke: var(--rule);
+    stroke-width: 1;
+}
+
+.fof-data circle {
+    fill: var(--accent);
+}
+
+.fof-missing-stem {
+    stroke: var(--rule);
+    stroke-width: 1;
+    stroke-dasharray: 2 4;
+}
+
+.fof-missing {
+    fill: var(--bg);
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    stroke-dasharray: 2.5 2.5;
+}
+
+.fof-missing-label {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 14px;
+    fill: var(--accent);
+}
+
+main#content .fof figcaption {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--accent);
+    margin: 1.25rem 0 0;
+    padding: 0;
+    line-height: 1.4;
+    text-align: center;
+}
+
+main#content .fof-back {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    color: var(--fg-muted);
+    margin: 1.5rem 0 0;
+    text-align: center;
+}
+
 footer#footer {
     font-family: var(--font-sans);
     font-size: 16px;

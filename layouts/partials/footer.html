@@ -3,6 +3,19 @@
 </footer>
 <script>
 (function () {
+    if (typeof console === 'undefined' || !console.log) return;
+    try {
+        var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var cin = dark ? '#e08a5c' : '#b14b1f';
+        var faint = dark ? '#807a6d' : '#888';
+        console.log(
+            '%c▁▂▄▅▇█  ▁▄▂▇▅█%c\n\nweird charts is a hand-curated archive of strange and captivating charts.\n\ngot one we should see? https://github.com/almartin82/weird-charts#contributing',
+            'color:' + cin + ';font:16px ui-monospace,SFMono-Regular,Menlo,monospace;',
+            'color:' + faint + ';font:italic 13px "Iowan Old Style",Palatino,Georgia,serif;'
+        );
+    } catch (e) {}
+})();
+(function () {
     function ensureWidgetsScript() {
         if (window.twttr || document.getElementById('wc-twttr')) return;
         var s = document.createElement('script');

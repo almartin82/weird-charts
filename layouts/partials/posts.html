@@ -12,7 +12,7 @@
 {{ if .Paginator.HasNext }}
 <div id="infinite-sentinel" data-next="{{ .Paginator.Next.URL }}" aria-hidden="true"></div>
 <noscript>
-    <p>more weird charts? <a href="{{ .Paginator.Next.URL }}">Next</a></p>
+    <p class="paginate-next">more in the archive. <a href="{{ .Paginator.Next.URL }}">next page.</a></p>
 </noscript>
 <script>
 (function () {
@@ -20,6 +20,14 @@
     if (!sentinel || !('IntersectionObserver' in window)) return;
     var loading = false;
     var nextUrl = sentinel.getAttribute('data-next');
+
+    function markEnd() {
+        var end = document.createElement('p');
+        end.className = 'end-of-feed';
+        end.textContent = 'end of the notebook.';
+        if (sentinel.parentNode) sentinel.parentNode.insertBefore(end, sentinel);
+        sentinel.remove();
+    }
 
     function loadNext() {
         if (loading || !nextUrl) return;
@@ -40,7 +48,7 @@
                 } else {
                     nextUrl = null;
                     observer.disconnect();
-                    sentinel.remove();
+                    markEnd();
                 }
                 if (window.wcObserveTweets) {
                     window.wcObserveTweets(posts);
@@ -61,4 +69,6 @@
     observer.observe(sentinel);
 })();
 </script>
+{{ else }}
+<p class="end-of-feed">end of the notebook.</p>
 {{ end }}
