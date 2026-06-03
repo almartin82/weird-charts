@@ -8,3 +8,6 @@ public/
 .claude/skills/impeccable
 skills-lock.json
 .impeccable/
+
+# Private business-strategy doc — must NEVER be committed to a public repo
+GOALS.md
