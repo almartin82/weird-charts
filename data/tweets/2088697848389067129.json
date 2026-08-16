@@ -1,0 +1,19 @@
+{
+  "id": "2088697848389067129",
+  "text": "Real plot nerds might be curious how I got the text labels around the periphery to be so orderly. I computed the convex hull of the data then computed 3 expansion shells of that hull. Sequential labels alternate between each of the 3 hulls, and go to the closest spot on the hull. https://t.co/6jfEXwLYA2",
+  "author": {
+    "handle": "moultano",
+    "name": "Ryan Moulton"
+  },
+  "created_at": "2026-08-15T18:42:27.000Z",
+  "permalink": "https://twitter.com/moultano/status/2088697848389067129",
+  "media": [
+    {
+      "path": "/tweet-media/2088697848389067129/0.jpg",
+      "type": "photo",
+      "width": 1560,
+      "height": 1598,
+      "alt": null
+    }
+  ]
+}
